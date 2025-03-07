@@ -1,0 +1,10 @@
+package architecture
+
+type Approach int
+
+const (
+	ddd = iota,
+		hexagonal,
+		onion,
+		explicit
+)
