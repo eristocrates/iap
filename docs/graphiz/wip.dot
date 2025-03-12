@@ -1,0 +1,318 @@
+digraph {
+    compound="true";
+    rankdir="TB";
+    // record nodes
+    node [shape="record", style="filled"];
+    rawthought [label="thought | {id|<title> title|definition}"];
+    task [label="task|{id|{title}}"];
+    threefoldwork [label="work|{<pre>pre-defined|<ad>ad hoc|<post>post-defined}"];
+    // headthought [label="thought"];
+    // default node
+    node [shape="ellipse", color="black", style="solid", fillcolor=""];
+    // subgraphs
+    subgraph cluster_legend {
+        label="Legend";
+        head_legend;
+        // actors
+        node [shape="box", style="filled", color="yellow"];
+        actor [label="Actor"];
+        // commands
+        node [shape="box", style="filled", color="aqua"];
+        command [label="Command"];
+        // queries
+        node [shape="box", style="filled", color="orangered"];
+        query [label="Query"];
+        // aggregates
+        node [shape="box", style="filled", color="lightgrey"];
+        aggregate [label="Aggregate"];
+        // systems
+        node [shape="box", style="filled", color="pink"];
+        system [label="System"];
+        // domain events
+        node [shape="box", style="filled", color="orange"];
+        event [label="Domain Event"];
+        // external
+        node [shape="box", style="filled", color="navajowhite"];
+        external [label="External"];
+        // policies
+        node [shape="box", style="filled", color="mediumorchid"];
+        policy [label="Policy"];
+        // opportunities
+        node [shape="box", style="filled", color="chartreuse"];
+        opportunity [label="Opportunity"];
+        // hotspots
+        node [shape="box", style="filled", color="indianred"];
+        hotspot [label="Hot Spot"];
+        // default node
+        node [shape="ellipse", color="black", style="solid", fillcolor=""];
+        tail_legend;
+    }
+    subgraph cluster_strategic_design {
+        label="Strategic Design";
+        head_strategic_design;
+        subgraph cluster_event_storm {
+            label="Event Storm";
+            head_event_storm;
+            // domain events
+            node [shape="box", style="filled", color="orange"];
+            subgraph cluster_predefined_work_events {
+                label="Pre-defined Work Events";
+            }
+            subgraph cluster_ad_hoc_work_events {
+                label="Ad Hoc Work Events";
+                head_ad_hoc_work_events;
+                thoughtadded [label="thought added"];
+                subgraph cluster_time_tracking_events {
+                    label="Time Tracking Events";
+                    head_time_tracking_events;
+                    timerstarted [label="timer started"];
+                    timerstopped [label="timer stopped"];
+                    timerstamped [label="datetime timestamped"];
+                    tail_time_tracking_events;
+                }
+                tail_ad_hoc_work_events;
+            }
+            subgraph cluster_defining_work_events {
+                label="Defining Work Events";
+                head_defining_work_events;
+                tagadded [label="tag added"];
+                tagremoved [label="tag removed"];
+                favoriteset [label="favorite set"];
+                subgraph cluster_account_events {
+                    label="Account Events";
+                    head_account_events;
+                    accountcreated [label="account created"];
+                    accountdeleted [label="account deleted"];
+                    accountloggedin [label="account logged in"];
+                    accountloggedout [label="account logged out"];
+                    subgraph cluster_setting_events {
+                        label="Setting Events";
+                        head_setting_events;
+                        timezoneset [label="time zone set"];
+                        weekstartset [label="first day of the week set"];
+                        datetimeformatset [label="datetime format set"];
+                        // hotspots
+                        node [shape="box", style="filled", color="indianred"];
+                        defaultvalueset [label="default value set "];
+                        automaticdeferralset [label="automatic defferal set"];
+                        // time map extension
+                        automaticboundextensionset [label="automatic bound extension set"];
+                        // domain events
+                        node [shape="box", style="filled", color="orange"];
+                        externalcalendarset [label="external calendar set"];
+                        tail_setting_events;
+                    }
+                    tail_account_events;
+                }
+                subgraph cluster_semantization_events {
+                    label="Semantization Events";
+                    head_semantization_events;
+                    infosemantized [label="info semantized"];
+                    tasksemantized [label="task semantized"];
+                    moneysemantized [label="money semantized"];
+                    ideasemantized [label="idea semantized"];
+                    possessionsemantized [label="possession semantized"];
+                    relationshipsemantized [label="relationship semantized"];
+                    selfsemantized [label="self semantized"];
+                    associationsemantized [label="association semantized"];
+                    tail_semantization_events;
+                }
+                subgraph cluster_task_events {
+                    label="Task Events";
+                    head_task_events;
+                    taskadded [label="task added"];
+                    taskremoved [label="task removed"];
+                    titleadded [label="title added"];
+                    titleremoved [label="title removed"];
+                    hierarchyadded [label="hierarchy added"];
+                    hierarchyremoved [label="hierarchy removed"];
+                    contentadded [label="content added"];
+                    contentremoved [label="content removed"];
+                    uploadadded [label="upload added"];
+                    uploadremoved [label="upload removed"];
+                    urladded [label="url added"];
+                    urlremoved [label="url removed"];
+                    // zone analog
+                    logtargetadded [label="log target added"];
+                    associationadded [label="association added"];
+                    associationremoved [label="association removed"];
+                    subgraph cluster_designer_events {
+                        label="Designer Events";
+                        head_designer_events;
+                        // hotspots
+                        node [shape="box", style="filled", color="indianred"];
+                        coloradded [label="color added (to what?)"];
+                        // domain events
+                        node [shape="box", style="filled", color="orange"];
+                        sectionset [label="section set"];
+                        tail_designer_events;
+                    }
+                    subgraph cluster_plan_events {
+                        label="Plan Events";
+                        head_plan_events;
+                        planadded [label="plan added"];
+                        presetadded [label="preset added"];
+                        presetset [label="preset set"];
+                        durationadded [label="duration added"];
+                        frameheadset [label="frame head set"];
+                        frametailset [label="frame tail set"];
+                        tail_plan_events;
+                    }
+                    subgraph cluster_prioritize_events {
+                        label="Prioritzation Events";
+                        head_prioritize_events;
+                        methodadded [label="method added"];
+                        methodremoved [label="method removed"];
+                        methodset [label="method set"];
+                        metricadded [label="metric added"];
+                        metricremoved [label="metric removed"];
+                        metricset [label="metric set"];
+                        tail_prioritize_events;
+                    }
+                    tail_task_events;
+                }
+                tail_defining_work_events;
+            }
+            // default node
+            node [shape="ellipse", color="black", style="solid", fillcolor=""];
+            tail_event_storm;
+        }
+        tail_strategic_design;
+    }
+    subgraph cluster_tactical_design {
+        label="Tactical Design";
+        head_tactical_design;
+        subgraph cluster_solution_space {
+            label="Solution Space";
+            head_solution_space;
+            subgraph cluster_entities {
+                label="Entities";
+                head_entities;
+            }
+            subgraph cluster_contexts {
+                label="Bounded Contexts";
+                head_contexts;
+            }
+            /*
+            subgraph cluster_{
+                label=""
+}
+            */
+            subgraph cluster_values {
+                label="Values";
+                head_values;
+            }
+            subgraph cluster_domain_events {
+                label="Domain Events";
+                head_domain_events;
+            }
+            subgraph cluster_aggregates {
+                label="Aggregates";
+                head_aggregates;
+            }
+            subgraph cluster_domain_services {
+                label="Domain Services";
+                head_domain_services;
+            }
+            subgraph cluster_application_services {
+                label="Application Services";
+                head_application_services;
+            }
+        }
+        tail_tactical_design;
+    }
+    head_legend -> head_strategic_design -> head_event_storm;
+    tail_legend -> tail_strategic_design -> tail_event_storm;
+    head_event_storm -> head_ad_hoc_work_events -> head_time_tracking_events;
+    tail_event_storm -> tail_ad_hoc_work_events -> tail_time_tracking_events;
+    head_event_storm -> head_defining_work_events;
+    tail_event_storm -> tail_defining_work_events;
+    head_defining_work_events -> head_account_events -> head_setting_events;
+    tail_defining_work_events -> tail_account_events -> tail_setting_events;
+    head_defining_work_events -> head_semantization_events;
+    tail_defining_work_events -> tail_semantization_events;
+    head_defining_work_events -> head_task_events;
+    tail_defining_work_events -> tail_task_events;
+    head_task_events -> head_designer_events;
+    tail_task_events -> tail_designer_events;
+    head_task_events -> head_plan_events;
+    tail_task_events -> tail_plan_events;
+    head_task_events -> head_prioritize_events;
+    tail_task_events -> tail_prioritize_events;
+    head_legend -> head_tactical_design;
+    tail_legend -> tail_tactical_design;
+}
+digraph problem_space {
+    label="Problem test Space";
+    head_problem_space;
+    subgraph cluster_values {
+        label="What value does the tool bring?";
+        head_values;
+        execfunc [label="executive function"];
+    }
+    subgraph cluster_research {
+        label="What fields are being researched";
+        head_strategic_design -> head_research;
+    }
+    subgraph cluster_experts {
+        label="What experts are being sourced";
+        head_strategic_design -> head_experts;
+    }
+    subgraph cluster_wip_storm {
+        label="wip storm";
+        head_wip_storm;
+        subgraph cluster_user {
+            label="user (me)";
+            head_user;
+            style="filled";
+            color="yellow";
+            threefoldwork:ad;
+        }
+        subgraph cluster_add_thought {
+            label="add thought";
+            head_add_thought;
+            style="filled";
+            color="aqua";
+            rawthought;
+        }
+        subgraph cluster_noun_verb {
+            label="noun to verb";
+            head_noun_verb;
+            subgraph cluster_thought_to_remember {
+                label="thought to remember";
+                head_thought_to_remember;
+                todo [label="task to do"];
+                tobudget [label="money to budget"];
+                tonote [label="idea to note"];
+                toinventory [label="possession to inventory"];
+                toconnect [label="relationship to connect"];
+                toreflect [label="self to reflect"];
+                tomodel [label="association to model"];
+            }
+            subgraph cluster_representation {
+                label="representations";
+                head_representation;
+                hierarchybrowser [label="hierarchical browser"];
+                list [label="flat list"];
+                outliner [label="nested outline"];
+                calendar [label="internal calendar"];
+                gantt [label="gantt chart"];
+                kanban [label="kanban board"];
+                mindmap [label="mind map"];
+            }
+        }
+        subgraph cluster_refine_task {
+            label="refine task";
+            head_refine_task;
+            task;
+        }
+        // processes
+        threefoldwork:ad -> rawthought:title;
+        rawthought:definition -> todo [lhead="cluster_define_thought"];
+        todo -> task [lhead="cluster_refine_task"];
+    }
+    subgraph cluster_language {
+        label="Ubiquitous Language";
+        head_language;
+    }
+}

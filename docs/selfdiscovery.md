@@ -1,3 +1,8 @@
+noun to verb representation
+structurally, this describes what i aim to create. 
+for the common todo list, task is implied as noun, do is the verb, and list is representation. for todos in particular priorities can be expressed via modal auxilliary verbs (could do, should do, must do, etc) but I don't see that holding up for other nouns. 
+list is a representation, but i also am interested in other repressentations like nested outline, kanban board, gantt chart, and of course a calendar
+
 # [usecases and constraints](https://svatasimara.medium.com/domain-driven-design-part-2-model-53be4e01c9e2)
 
 things should be modular, composable, ubiquitous
@@ -33,8 +38,6 @@ title
 hierarchical path
 note
 tags
-
-
 
 ## semantics
 relations (is a, has a, parallel, )
