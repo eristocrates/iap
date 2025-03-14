@@ -1,0 +1,73 @@
+digraph problem_space {
+    label="Problem test Space";
+    head_problem_space;
+    subgraph cluster_values {
+        label="What value does the tool bring?";
+        head_values;
+        execfunc [label="executive function"];
+    }
+    subgraph cluster_research {
+        label="What fields are being researched";
+        head_strategic_design -> head_research;
+    }
+    subgraph cluster_experts {
+        label="What experts are being sourced";
+        head_strategic_design -> head_experts;
+    }
+    subgraph cluster_wip_storm {
+        label="wip storm";
+        head_wip_storm;
+        subgraph cluster_user {
+            label="user (me)";
+            head_user;
+            style="filled";
+            color="yellow";
+            threefoldwork:ad;
+        }
+        subgraph cluster_add_thought {
+            label="add thought";
+            head_add_thought;
+            style="filled";
+            color="aqua";
+            rawthought;
+        }
+        subgraph cluster_noun_verb {
+            label="noun to verb";
+            head_noun_verb;
+            subgraph cluster_thought_to_remember {
+                label="thought to remember";
+                head_thought_to_remember;
+                todo [label="task to do"];
+                tobudget [label="money to budget"];
+                tonote [label="idea to note"];
+                toinventory [label="possession to inventory"];
+                tounderstand [label="person to understand"];
+                tomodel [label="association to model"];
+            }
+            subgraph cluster_representation {
+                label="representations";
+                head_representation;
+                hierarchybrowser [label="hierarchical browser"];
+                list [label="flat list"];
+                outliner [label="nested outline"];
+                calendar [label="internal calendar"];
+                gantt [label="gantt chart"];
+                kanban [label="kanban board"];
+                mindmap [label="mind map"];
+            }
+        }
+        subgraph cluster_refine_task {
+            label="refine task";
+            head_refine_task;
+            task;
+        }
+        // processes
+        threefoldwork:ad -> rawthought:title;
+        rawthought:definition -> todo [lhead="cluster_define_thought"];
+        todo -> task [lhead="cluster_refine_task"];
+    }
+    subgraph cluster_language {
+        label="Ubiquitous Language";
+        head_language;
+    }
+}

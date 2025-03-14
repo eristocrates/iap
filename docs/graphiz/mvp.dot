@@ -1,0 +1,55 @@
+digraph storm {
+    compound="true";
+    rankdir="LR";
+    subgraph add_thought {
+        user [label="User", shape="box", style="filled", color="yellow"];
+        addthought [label="Add Thought", shape="box", style="filled", color="aqua"];
+        thoughtadded [label="Thought Added", shape="box", style="filled", color="orange"];
+        user -> addthought -> thoughtadded;
+        semantizetask [label="Semantize Task", shape="box", style="filled", color="aqua"];
+        tasksemantized [label="Task Semantized", shape="box", style="filled", color="orange"];
+        user -> semantizetask -> tasksemantized;
+    }
+}
+digraph {
+    compound="true";
+    rankdir="TB";
+    subgraph cluster_legend {
+        label="Legend";
+        // actors
+        node [shape="box", style="filled", color="yellow"];
+        actor [label="Actor"];
+        // commands
+        node [shape="box", style="filled", color="aqua"];
+        command [label="Command"];
+        // queries
+        node [shape="box", style="filled", color="orangered"];
+        query [label="Query"];
+        // models
+        node [shape="record", color=""];
+        model [label="Model"];
+        // aggregates
+        node [shape="box", style="filled", color="thistle"];
+        aggregate [label="Aggregate"];
+        // systems
+        node [shape="box", style="filled", color="pink"];
+        system [label="System"];
+        // domain events
+        node [shape="box", style="filled", color="orange"];
+        event [label="Domain Event"];
+        // external
+        node [shape="box", style="filled", color="navajowhite"];
+        external [label="External"];
+        // policies
+        node [shape="box", style="filled", color="mediumorchid"];
+        policy [label="Policy"];
+        // opportunities
+        node [shape="box", style="filled", color="chartreuse"];
+        opportunity [label="Opportunity"];
+        // hotspots
+        node [shape="box", style="filled", color="indianred"];
+        hotspot [label="Hot Spot"];
+        // default node
+        node [shape="ellipse", color="black", style="solid", fillcolor=""];
+    }
+}

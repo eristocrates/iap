@@ -57,6 +57,8 @@ digraph {
             node [shape="box", style="filled", color="orange"];
             subgraph cluster_predefined_work_events {
                 label="Pre-defined Work Events";
+                head_predefined_work_events;
+                tail_predefined_work_events;
             }
             subgraph cluster_ad_hoc_work_events {
                 label="Ad Hoc Work Events";
@@ -112,8 +114,7 @@ digraph {
                     moneysemantized [label="money semantized"];
                     ideasemantized [label="idea semantized"];
                     possessionsemantized [label="possession semantized"];
-                    relationshipsemantized [label="relationship semantized"];
-                    selfsemantized [label="self semantized"];
+                    personsemantized [label="person semantized"];
                     associationsemantized [label="association semantized"];
                     tail_semantization_events;
                 }
@@ -223,6 +224,8 @@ digraph {
     }
     head_legend -> head_strategic_design -> head_event_storm;
     tail_legend -> tail_strategic_design -> tail_event_storm;
+    head_event_storm -> head_predefined_work_events;
+    tail_event_storm -> tail_predefined_work_events;
     head_event_storm -> head_ad_hoc_work_events -> head_time_tracking_events;
     tail_event_storm -> tail_ad_hoc_work_events -> tail_time_tracking_events;
     head_event_storm -> head_defining_work_events;
@@ -241,78 +244,4 @@ digraph {
     tail_task_events -> tail_prioritize_events;
     head_legend -> head_tactical_design;
     tail_legend -> tail_tactical_design;
-}
-digraph problem_space {
-    label="Problem test Space";
-    head_problem_space;
-    subgraph cluster_values {
-        label="What value does the tool bring?";
-        head_values;
-        execfunc [label="executive function"];
-    }
-    subgraph cluster_research {
-        label="What fields are being researched";
-        head_strategic_design -> head_research;
-    }
-    subgraph cluster_experts {
-        label="What experts are being sourced";
-        head_strategic_design -> head_experts;
-    }
-    subgraph cluster_wip_storm {
-        label="wip storm";
-        head_wip_storm;
-        subgraph cluster_user {
-            label="user (me)";
-            head_user;
-            style="filled";
-            color="yellow";
-            threefoldwork:ad;
-        }
-        subgraph cluster_add_thought {
-            label="add thought";
-            head_add_thought;
-            style="filled";
-            color="aqua";
-            rawthought;
-        }
-        subgraph cluster_noun_verb {
-            label="noun to verb";
-            head_noun_verb;
-            subgraph cluster_thought_to_remember {
-                label="thought to remember";
-                head_thought_to_remember;
-                todo [label="task to do"];
-                tobudget [label="money to budget"];
-                tonote [label="idea to note"];
-                toinventory [label="possession to inventory"];
-                toconnect [label="relationship to connect"];
-                toreflect [label="self to reflect"];
-                tomodel [label="association to model"];
-            }
-            subgraph cluster_representation {
-                label="representations";
-                head_representation;
-                hierarchybrowser [label="hierarchical browser"];
-                list [label="flat list"];
-                outliner [label="nested outline"];
-                calendar [label="internal calendar"];
-                gantt [label="gantt chart"];
-                kanban [label="kanban board"];
-                mindmap [label="mind map"];
-            }
-        }
-        subgraph cluster_refine_task {
-            label="refine task";
-            head_refine_task;
-            task;
-        }
-        // processes
-        threefoldwork:ad -> rawthought:title;
-        rawthought:definition -> todo [lhead="cluster_define_thought"];
-        todo -> task [lhead="cluster_refine_task"];
-    }
-    subgraph cluster_language {
-        label="Ubiquitous Language";
-        head_language;
-    }
 }
