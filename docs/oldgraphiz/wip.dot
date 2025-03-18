@@ -113,7 +113,7 @@ digraph {
                     tasksemantized [label="task semantized"];
                     moneysemantized [label="money semantized"];
                     ideasemantized [label="idea semantized"];
-                    possessionsemantized [label="possession semantized"];
+                    propertysemantized [label="property semantized"];
                     personsemantized [label="person semantized"];
                     associationsemantized [label="association semantized"];
                     tail_semantization_events;

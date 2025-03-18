@@ -40,7 +40,7 @@ digraph problem_space {
                 todo [label="task to do"];
                 tobudget [label="money to budget"];
                 tonote [label="idea to note"];
-                toinventory [label="possession to inventory"];
+                toinventory [label="property to inventory"];
                 tounderstand [label="person to understand"];
                 tomodel [label="association to model"];
             }

@@ -1,0 +1,7 @@
+digraph  {
+	
+	n2[href="example.svg",label="example",shape="box3d"];
+	n1[label="test"];
+	
+}
+

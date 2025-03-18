@@ -1,0 +1,10 @@
+digraph  {
+	
+	n2[href="subsystem.svg",label="subsystem",shape="box3d"];
+	n1[label="component"];
+	n2->n1[label="out2"];
+	n1->n2[label="in1"];
+	n1->n2[label="in2"];
+	
+}
+

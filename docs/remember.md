@@ -1,6 +1,9 @@
 lazy nushell start
 go run (ls **/*.go | get name | str join " ")
 
+graphviz run hack
+go run main.go | save -f  /mnt/c/Users/eristocrates/notes/test.dot
+
 scheduler (reference actual calendars like outlook and gcalendar)
 prioritization decoupled from tasks
 seperate but related quantifying, qualifying, and quantizing operations. maybe standardize too? if so, it's certainly related to bulk operations
