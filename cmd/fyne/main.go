@@ -2,13 +2,12 @@ package main
 
 import (
 	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/widget"
+
+	"iap/internal/adapters/uidrivers/fyne/windows"
 )
 
 func main() {
 	a := app.New()
-	w := a.NewWindow("Hello World")
-
-	w.SetContent(widget.NewLabel("Hello World!"))
-	w.ShowAndRun()
+	windows.MainWindow(a)
+	a.Run()
 }
